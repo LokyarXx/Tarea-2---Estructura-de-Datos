@@ -67,3 +67,18 @@ void menu()
 	printf("all        : Muestra el contenido del cache\n");
 	printf("exit       : Libera el cache y sale del programa\n\n");
 }
+
+struct LRUCache* createCache(int capacity) 
+{
+    if (capacity < 5) 
+    {
+        return NULL;
+    }
+
+    struct LRUCache* cache = (struct LRUCache*)malloc(sizeof(struct LRUCache));
+    cache->capacity = capacity;
+    cache->size = 0;
+    cache->head = NULL;
+    cache->tail = NULL;
+    return cache;
+}
